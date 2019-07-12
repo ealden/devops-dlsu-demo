@@ -59,3 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+role :app, %w{deploy@devops-dlsu-demo}
+role :db,  %w{deploy@devops-dlsu-demo}
+role :web, %w{deploy@devops-dlsu-demo}
