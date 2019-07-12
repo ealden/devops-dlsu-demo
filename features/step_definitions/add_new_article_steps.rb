@@ -27,5 +27,5 @@ end
 Then  'I must not have any new articles added' do
   site.articles.load
 
-  assert_equal 0, site.articles.list.size
+  assert site.articles.list.empty?
 end
