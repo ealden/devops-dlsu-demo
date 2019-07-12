@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  get 'site/sha', to: 'site#sha'
+
   root 'welcome#index'
 end
