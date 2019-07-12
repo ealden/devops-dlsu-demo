@@ -60,6 +60,8 @@
 #     # password: "please use keys"
 #   }
 
+set :branch, 'production'
+
 role :app, %w{deploy@devops-dlsu-demo}
 role :db,  %w{deploy@devops-dlsu-demo}
 role :web, %w{deploy@devops-dlsu-demo}
