@@ -8,6 +8,9 @@
       <th>Title</th>
       <th>Text</th>
       <th></th>
+      <% if user_signed_in? %>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -17,6 +20,11 @@
         <td><%= article.title %></td>
         <td><%= article.text %></td>
         <td><%= link_to 'Show', article_path(article) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Destroy', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
