@@ -1,0 +1,38 @@
+#!/bin/sh
+
+set -e
+
+echo ""
+echo "  DevOps DLSU Demo"
+echo ""
+
+# Check if PostgreSQL (or at least psql) is present
+# if test ! $(which psql); then
+#   echo "  x You need to install PostgreSQL"
+#   exit
+# else
+#   echo "  + PostgreSQL found."
+# fi
+
+# Check if Bundler is present
+if test ! $(which bundler); then
+  echo "  x You need to install Bundler:"
+  echo "    gem install bundler"
+  exit
+else
+  echo "  + Bundler found."
+fi
+
+echo "  + Installing dependencies..."
+bundle install --quiet
+
+echo "  + Running migrations..."
+rails db:drop
+rails db:create
+rails db:migrate
+
+echo "  + Seeding data..."
+rails db:seed
+
+echo ""
+echo "  We're ready to rock!"
