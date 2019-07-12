@@ -19,3 +19,13 @@ Then  'I must see my new article added' do
 
   assert_equal 1, site.articles.list.size
 end
+
+Then  'I must be notified that {string}' do |error_message|
+  assert_equal error_message, site.articles.new.errors.first.text
+end
+
+Then  'I must not have any new articles added' do
+  site.articles.load
+
+  assert_equal 0, site.articles.list.size
+end
